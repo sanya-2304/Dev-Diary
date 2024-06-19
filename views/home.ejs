@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <style>
+        /* style.css */
+
+/* Basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Flexbox layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content should grow to push footer to the bottom */
+.container {
+    flex: 1;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding-top:0.2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.footer h5 {
+    margin-bottom: 0.5rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer a {
+    color: #ced4da;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer .col {
+    flex: 1;
+    padding: 1rem;
+}
+
+.footer .col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .col ul li {
+    margin-bottom: 0.5rem;
+}
+
+    </style>
+    <title>HomePage</title>
+</head>
+<body class="bg-dark">
+   
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="container  ">
+        <div class="row row-cols-4 ">
+        <% blogs.forEach(blog => { %>
+            <div class="col mt-4">
+            <div class="card col" style="width: 15rem;">
+                <!-- <img src="<%= blog.coverImgURL %>" class="card-img-top" alt="..." width: 18rem; > -->
+                <div class="card-body">
+                  <h5 class="card-title"><%= blog.title %></h5>
+                  <p class="mt-2 mb-2 " style="font-size: 15px;">Posted by: <%= blog.createdBy.fullName %></p>
+                  <a href="/blog/<%= blog._id %>" class="btn btn-warning">Read Blog</a>
+                  
+                </div>
+              </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+
+    <%- include('./partials/footer.ejs') %>
+    <%- include('./partials/scripts.ejs') %>
+</body>
+</html>

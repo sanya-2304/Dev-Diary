@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>SignUp Page</title>
+    <style>
+       
+        .container{
+            margin-top: 100px;
+            display: flex;
+            
+        }
+        .signup-container {
+            max-width: 500px;
+            margin: auto;
+          
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .signup-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-text {
+            color: #6c757d;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .form-control{
+            border:none;
+            border-bottom: 1px solid gray;
+            border-radius: 0;
+            outline: none;
+        }
+        .sign {
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .imgg{
+            height: 500px;
+            width: 800px;
+            /* border: 2px solid white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+        }
+       
+        .htag{
+            color: #ffffff;
+            font-size: 150px;
+            /* border: 10px solid white; */
+            border-radius: 25%;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .htag span{
+            font-size: 40px;
+            font-family: tahoma;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container ">
+        <div class="imgg">
+            <!-- <img src="../_.png" alt=""> -->
+        <h1 class="htag"> < <span>Welcome to <br> DEV DIARY</span> /> </h1>
+        </div>
+        <div class="signup-container p-lg-4">
+            <h3 class="signup-header">Save your account now!</h3>
+            <form action="/user/signUp" method="post">
+                <div class="mb-3">
+                    <!-- <label for="fullname" class="form-label">Full Name</label> -->
+                    <input type="text" class="form-control" id="fullName" aria-describedby="fullName" name="fullName" required placeholder="Full Name">
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="email" class="form-label">Email address</label> -->
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required placeholder="Email">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <div class="mb-3">
+                    <!-- <label for="password" class="form-label">Password</label> -->
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="password">
+                </div>
+                <button type="submit" class="btn btn-primary">SignUp</button>
+                <p class="sign">Already saved account? <a href="/user/signIn">Sign in</a> </p>
+            </form>
+        </div>
+    </div>
+    <%- include('./partials/scripts.ejs') %>
+</body>
+</html>
